@@ -1,0 +1,84 @@
+---
+import Camera from '@/icons/Camera.astro'
+import 'swiper/css'
+---
+
+<section>
+    <div class='header'>
+        <h2>Retratos de nuestro amor</h2>
+        <p>Un minuto, un segundo, un instante que queda en la eternidad</p>
+        <Camera class='icon' />
+    </div>
+    <div class='swiper mySwiper'>
+        <div class='swiper-wrapper'>
+            <div class='swiper-slide'>Slide 1</div>
+            <div class='swiper-slide'>Slide 2</div>
+            <div class='swiper-slide'>Slide 3</div>
+            <div class='swiper-slide'>Slide 4</div>
+            <div class='swiper-slide'>Slide 5</div>
+            <div class='swiper-slide'>Slide 6</div>
+            <div class='swiper-slide'>Slide 7</div>
+            <div class='swiper-slide'>Slide 8</div>
+            <div class='swiper-slide'>Slide 9</div>
+        </div>
+        <div class='swiper-pagination'></div>
+    </div>
+</section>
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 1rem;
+        background-color: var(--color-background-secondary);
+        color: var(--color-text-foreground);
+        text-align: center;
+    }
+    .icon {
+        width: 5rem;
+        height: 5rem;
+        color: var(--color-text-foreground);
+        margin: 1rem;
+    }
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper'
+
+    var swiper = new Swiper('.mySwiper', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 500,
+            disableOnInteraction: false
+        },
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    })
+</script>

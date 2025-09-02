@@ -1,0 +1,93 @@
+<section>
+    <h2>Falta</h2>
+    <div id='countdown'>
+        <div class='border-right'>
+            <span id='days'>00</span>
+            <p>días</p>
+        </div>
+        <div class='border-right'>
+            <span id='hours'>00</span>
+            <p>horas</p>
+        </div>
+        <div>
+            <span id='minutes'>00</span>
+            <p>minutos</p>
+        </div>
+        <div class='border-left'>
+            <span id='seconds'>00</span>
+            <p>segundos</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        gap: 1rem;
+    }
+    #countdown {
+        display: flex;
+        gap: 2rem;
+        span {
+            font-size: 2rem;
+            text-align: center;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .border-left {
+            border-left: 1px solid var(--color-text-foreground);
+            padding-left: 2rem;
+        }
+        .border-right {
+            border-right: 1px solid var(--color-text-foreground);
+            padding-right: 2rem;
+        }
+        p {
+            margin: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+    }
+</style>
+
+<script>
+    const daysEl = document.getElementById('days')
+    const hoursEl = document.getElementById('hours')
+    const minutesEl = document.getElementById('minutes')
+    const secondsEl = document.getElementById('seconds')
+    const countDate = new Date('2025-11-30T15:00:00').getTime()
+
+    const countdown = () => {
+        const now = new Date().getTime()
+        const gap = countDate - now
+
+        // How does time work?
+        const second = 1000
+        const minute = second * 60
+        const hour = minute * 60
+        const day = hour * 24
+
+        // Calculate
+        const textDay = Math.floor(gap / day)
+        const textHour = Math.floor((gap % day) / hour)
+        const textMinute = Math.floor((gap % hour) / minute)
+        const textSecond = Math.floor((gap % minute) / second)
+
+        if (daysEl) daysEl.innerText = textDay.toString().padStart(2, '0')
+        if (hoursEl) hoursEl.innerText = textHour.toString().padStart(2, '0')
+        if (minutesEl)
+            minutesEl.innerText = textMinute.toString().padStart(2, '0')
+        if (secondsEl)
+            secondsEl.innerText = textSecond.toString().padStart(2, '0')
+    }
+
+    setInterval(countdown, 1000)
+    countdown()
+</script>

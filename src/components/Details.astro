@@ -1,0 +1,103 @@
+---
+import Rings from '@/icons/Rings.astro'
+import Party from '@/icons/Party.astro'
+import Button from './ui/Button.astro'
+
+const ceremonyDate = [
+    {
+        title: 'Día',
+        description: 'Domingo 30 de Noviembre - 3:00pm',
+        button: 'Agendar',
+        link: 'https://calendar.google.com/event?action=TEMPLATE&tmeid=NDJmN2Y3ZzM0ZzQ1bWw0bTVmM2YyM2gydjQgZGF2aWRhbGlzb25AZ21haWwuY29t&tmsrc=davidalison%40gmail.com'
+    },
+    {
+        title: 'Lugar',
+        description: 'Pérez Zeledón, San José',
+        button: 'Ver Mapa',
+        link: 'https://goo.gl/maps/1mX4Y8v1v3t5vKkR7'
+    },
+    {
+        title: 'Recepción',
+        description: 'Salón de Eventos El Mirador, Alajuela',
+        button: 'Ver Mapa',
+        link: 'https://goo.gl/maps/1mX4Y8v1v3t5vKkR7'
+    }
+]
+---
+
+<section>
+    <div class='detail border-right'>
+        <Rings class='icon' />
+        <h3>Ceremonia</h3>
+        {
+            ceremonyDate.map((item) => (
+                <div class='info'>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                    <Button link={item.link}>{item.button}</Button>
+                </div>
+            ))
+        }
+    </div>
+    <div class='detail'>
+        <Party class='icon' />
+        <h3>Fiesta</h3>
+        {
+            ceremonyDate.map((item) => (
+                <div class='info'>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                    <Button link={item.link}>{item.button}</Button>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0rem;
+        padding: 4rem 1rem;
+        background-color: var(--color-background-secondary);
+    }
+    .border-right {
+        border-right: 1px solid var(--color-primary);
+    }
+    .detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem 9rem;
+
+        .icon {
+            width: 5rem;
+            height: 5rem;
+            color: var(--color-text);
+        }
+        h3 {
+            border-top: 1px solid var(--color-primary);
+            border-bottom: 1px solid var(--color-primary);
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+        div.info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0rem;
+            h4 {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+            p {
+                margin: 0.5rem 0 1rem 0;
+                font-size: 1.3rem;
+            }
+        }
+    }
+</style>
