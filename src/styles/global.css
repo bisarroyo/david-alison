@@ -1,0 +1,44 @@
+:root{
+    --color-primary: #f6c489; /* Blue-700 */
+    --color-secondary: #9333EA; /* Purple-600 */
+    --color-accent: #F59E0B; /* Amber-500 */
+    --color-background: #F3F4F6; /* Gray-100 */
+    --color-text: #111827; /* Gray-900 */
+    --color-text-foreground: #3b3b3b;
+    --font-family-roboto: 'Roboto Variable', sans-serif;
+    --font-family-parisienne: 'Parisienne', cursive;
+    --font-family-mono: 'Courier New', monospace;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family-roboto);
+}
+h1{
+    font-family: var(--font-family-parisienne);
+    font-size: clamp(1.5rem, 10vw, 5rem);
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+}
+h2 {
+    font-family: var(--font-family-parisienne);
+    font-size: clamp(1rem, 7vw, 4rem);
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+}
+h3 {
+    font-family: var(--font-family-parisienne);
+    font-size: clamp(1rem, 5vw, 3rem);
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+}
+p {
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 3rem);
+}
