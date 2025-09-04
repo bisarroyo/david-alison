@@ -64,4 +64,5 @@ section {
     z-index: 100;
     position: relative;
     padding: 5rem 1rem;
+    margin-top: -1px;
 }
