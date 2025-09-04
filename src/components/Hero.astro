@@ -3,7 +3,7 @@ import Quote from '@/icons/Quote.astro'
 ---
 
 <section>
-    <h1>Alison <span>&</span> David</h1>
+    <h1>Alison <span><br />&<br /></span> David</h1>
     <div class='quote'>
         <Quote class='quote quote-rotate' />
         <p>Lorem ipsum dolor amet</p>
@@ -13,13 +13,30 @@ import Quote from '@/icons/Quote.astro'
 
 <style>
     section {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100dvh;
         gap: 1rem;
-        background-color: bisque;
+        /* Hero background image */
+        background-color: bisque; /* fallback */
+        background-image: url('../assets/hero.webp');
+        background-size: cover;
+        background-position: center -300px;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        isolation: isolate; /* ensure overlay stacking works */
+        color: white;
+
+        @media screen {
+            background-position: center;
+        }
+        h1 {
+            line-height: 0.9;
+            margin-top: 450px;
+        }
     }
 
     .quote {
@@ -29,9 +46,9 @@ import Quote from '@/icons/Quote.astro'
         justify-content: center;
 
         .quote {
-            width: 4rem;
-            height: 4rem;
-            color: var(--color-text-foreground);
+            width: 3rem;
+            height: 3rem;
+            color: rgba(255, 255, 255, 0.8);
             vertical-align: middle;
             margin-left: 0.5rem;
             &.quote-rotate {

@@ -26,22 +26,9 @@ const ceremonyDate = [
 ---
 
 <section>
-    <div class='detail border-right'>
-        <Rings class='icon' />
-        <h3>Ceremonia</h3>
-        {
-            ceremonyDate.map((item) => (
-                <div class='info'>
-                    <h4>{item.title}</h4>
-                    <p>{item.description}</p>
-                    <Button link={item.link}>{item.button}</Button>
-                </div>
-            ))
-        }
-    </div>
     <div class='detail'>
-        <Party class='icon' />
-        <h3>Fiesta</h3>
+        <Rings class='icon' />
+        <h3>Ceremonia & celebración</h3>
         {
             ceremonyDate.map((item) => (
                 <div class='info'>
@@ -62,9 +49,6 @@ const ceremonyDate = [
         gap: 0rem;
         padding: 4rem 1rem;
         background-color: var(--color-background-secondary);
-    }
-    .border-right {
-        border-right: 1px solid var(--color-primary);
     }
     .detail {
         display: flex;
