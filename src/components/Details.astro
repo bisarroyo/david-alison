@@ -1,6 +1,5 @@
 ---
 import Rings from '@/icons/Rings.astro'
-import Party from '@/icons/Party.astro'
 import Button from './ui/Button.astro'
 
 const ceremonyDate = [
@@ -18,7 +17,7 @@ const ceremonyDate = [
     },
     {
         title: 'Recepción',
-        description: 'Salón de Eventos El Mirador, Alajuela',
+        description: 'Salón de Eventos El Mirador, PZ',
         button: 'Ver Mapa',
         link: 'https://goo.gl/maps/1mX4Y8v1v3t5vKkR7'
     }
@@ -28,7 +27,7 @@ const ceremonyDate = [
 <section>
     <div class='detail'>
         <Rings class='icon' />
-        <h3>Ceremonia & celebración</h3>
+        <h2>Ceremonia & celebración</h2>
         {
             ceremonyDate.map((item) => (
                 <div class='info'>
@@ -47,16 +46,15 @@ const ceremonyDate = [
         justify-content: center;
         align-items: center;
         gap: 0rem;
-        padding: 4rem 1rem;
         background-color: var(--color-background-secondary);
     }
+
     .detail {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         gap: 2rem;
-        padding: 2rem 9rem;
 
         .icon {
             width: 5rem;

@@ -3,11 +3,15 @@ import Quote from '@/icons/Quote.astro'
 ---
 
 <section>
-    <h1>Alison <span><br />&<br /></span> David</h1>
+    <p class='name'>Allison</p>
+    <p class='y'>&</p>
+    <p class='name'>David</p>
     <div class='quote'>
-        <Quote class='quote quote-rotate' />
-        <p>Lorem ipsum dolor amet</p>
-        <Quote class='quote' />
+        <Quote class='quote-icon quote-rotate' />
+        <p>
+            Todos somos mortales, hasta el primer beso y la segunda copa de vino
+        </p>
+        <Quote class='quote-icon' />
     </div>
 </section>
 
@@ -16,27 +20,39 @@ import Quote from '@/icons/Quote.astro'
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
-        height: 100dvh;
+        height: 100vh;
         gap: 1rem;
         /* Hero background image */
         background-color: bisque; /* fallback */
-        background-image: url('../assets/hero.webp');
+        background-image: url('../assets/hero-image.webp');
         background-size: cover;
-        background-position: center -300px;
+        background-position: center -350px;
         background-repeat: no-repeat;
-        background-attachment: scroll;
+        background-attachment: fixed;
         isolation: isolate; /* ensure overlay stacking works */
-        color: white;
+        color: var(--color-white);
+
+        @media (max-width: 2100px) {
+            background-position: center -260px;
+        }
 
         @media (max-width: 990px) {
             background-position: center;
         }
-        h1 {
+        .y {
+            font-family: var(--font-family-parisienne);
+            font-size: clamp(1.5rem, 10vw, 3rem);
+            text-align: center;
+            margin: 0;
+            font-weight: normal;
             line-height: 0.9;
-            margin-top: 450px;
         }
+    }
+    span {
+        font-size: 1.5rem;
+        line-height: 1;
     }
 
     .quote {
@@ -44,15 +60,25 @@ import Quote from '@/icons/Quote.astro'
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-bottom: 40px;
+        p {
+            padding: 0 20px;
+            text-wrap: balance;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
 
-        .quote {
-            width: 3rem;
-            height: 3rem;
+        .quote-icon {
+            width: 2.5rem;
+            height: 2.5rem;
             color: rgba(255, 255, 255, 0.8);
             vertical-align: middle;
             margin-left: 0.5rem;
             &.quote-rotate {
                 transform: rotate(180deg);
+            }
+            @media (max-width: 990px) {
+                width: 1.5rem;
+                height: 1.5rem;
             }
         }
     }

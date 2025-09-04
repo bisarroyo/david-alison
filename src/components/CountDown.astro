@@ -31,7 +31,7 @@
     }
     #countdown {
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
         span {
             font-size: 2rem;
             text-align: center;
@@ -43,11 +43,11 @@
         }
         .border-left {
             border-left: 1px solid var(--color-text-foreground);
-            padding-left: 2rem;
+            padding-left: 1rem;
         }
         .border-right {
             border-right: 1px solid var(--color-text-foreground);
-            padding-right: 2rem;
+            padding-right: 1rem;
         }
         p {
             margin: 0;
@@ -62,7 +62,7 @@
     const hoursEl = document.getElementById('hours')
     const minutesEl = document.getElementById('minutes')
     const secondsEl = document.getElementById('seconds')
-    const countDate = new Date('2025-11-30T15:00:00').getTime()
+    const countDate = new Date('2025-12-20T15:00:00').getTime()
 
     const countdown = () => {
         const now = new Date().getTime()
