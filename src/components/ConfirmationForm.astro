@@ -1,25 +1,82 @@
 <section id='confirmation'>
     <div class='confirmation-form'>
         <h2>Confirma tu asistencia</h2>
-        <form action=''>
+        <form id='rsvp-form'>
             <div>
                 <label for='name'>Nombre:</label>
-                <input type='text' id='name' name='name' required />
+                <input
+                    type='text'
+                    id='name'
+                    name='name'
+                    placeholder='Nombre completo'
+                    required
+                />
             </div>
 
             <div>
                 <label for='attendance'>¿Asistirás?</label>
                 <select id='attendance' name='attendance' required>
-                    <option value=''>Asistirás?</option>
-                    <option value='yes'>Sí, asistiré</option>
-                    <option value='no'>No podré asistir</option>
+                    <option value=''>¿Asistirás?</option>
+                    <option value='1'>Sí, asistiré</option>
+                    <option value='0'>No podré asistir</option>
                 </select>
             </div>
 
             <button type='submit'>Enviar</button>
         </form>
+        <div id='response'></div>
     </div>
 </section>
+<script>
+    import { actions } from 'astro:actions'
+
+    const form = document.getElementById('rsvp-form') as HTMLFormElement
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const formData = new FormData(form)
+        const { name, attendance } = Object.fromEntries(formData.entries())
+        // console.log({ name, attendance })
+        const { data, error } = await actions.sendForm({
+            name: name as string,
+            attendance: attendance as '1' | '0'
+        })
+
+        console.log(data)
+        console.log(error)
+    })
+
+    // const responseBox = document.getElementById('response') as HTMLDivElement
+    // form.addEventListener('submit', async (e) => {
+    //     e.preventDefault()
+
+    //     // Construir datos del formulario
+    //     const formData = new FormData(form)
+
+    //     // Convertir a JSON
+    //     const { name, attendance } = Object.fromEntries(formData.entries())
+    //     if (!name || !attendance) {
+    //         responseBox.textContent = '❌ Por favor completa todos los campos.'
+    //         return
+    //     }
+
+    //     try {
+    //         const res = await fetch('/api/assist', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ name, attendance })
+    //         })
+
+    //         const result = await res.json()
+
+    //         responseBox.textContent = '✅ Éxito: ' + JSON.stringify(result)
+    //     } catch (error: Error | any) {
+    //         responseBox.textContent = '❌ Error: ' + error.message
+    //     }
+    // })
+</script>
 
 <style>
     section {
@@ -52,18 +109,26 @@
                 }
                 input {
                     flex: 1;
-                    padding: 5px 10px;
+                    padding: 10px 10px;
                     width: 100%;
                     border: 1px solid #ccc;
                     border-radius: 5px;
+                    font-family: inherit; /* usa el mismo de body */
+                    -webkit-appearance: none; /* quita estilos por defecto iOS */
+                    appearance: none;
+                    outline: none;
                 }
                 select {
                     flex: 1;
-                    padding: 5px 10px;
+                    padding: 10px 10px;
                     width: 100%;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                     background-color: white;
+                    font-family: inherit; /* usa el mismo de body */
+                    -webkit-appearance: none; /* quita estilos por defecto iOS */
+                    appearance: none;
+                    outline: none;
                 }
             }
             button {
