@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.2.7",
     "@fontsource-variable/playfair-display": "^5.2.6",
     "@fontsource/parisienne": "^5.2.6",
     "@libsql/client": "^0.15.14",
