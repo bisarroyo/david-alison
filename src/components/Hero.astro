@@ -26,27 +26,33 @@ import Quote from '@/icons/Quote.astro'
         height: 100dvh;
         gap: 1rem;
         /* Hero background image */
-        background-color: bisque; /* fallback */
-        background-image: url('../assets/hero-image.webp');
+        background-color: bisque;
+        /* background-image: url('../assets/hero-image.webp');
         background-size: cover;
         background-position: center -350px;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        isolation: isolate; /* ensure overlay stacking works */
+        isolation: isolate;  */
         color: var(--color-white);
 
-        @media (max-width: 2100px) {
-            background-position: center -260px;
-        }
-        @supports (-webkit-touch-callout: none) {
-            .hero {
-                background-attachment: scroll;
+        &::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url('../assets/hero-image.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-position: center -350px;
+            z-index: -1;
+            @media (max-width: 2100px) {
+                background-position: center -260px;
+            }
+            @media (max-width: 990px) {
+                background-position: center;
             }
         }
 
-        @media (max-width: 990px) {
-            background-position: center;
-        }
         .y {
             font-family: var(--font-family-parisienne);
             font-size: clamp(1.5rem, 10vw, 3rem);
