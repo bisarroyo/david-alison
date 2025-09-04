@@ -1,0 +1,84 @@
+<section id='confirmation'>
+    <div class='confirmation-form'>
+        <h2>Confirma tu asistencia</h2>
+        <form action=''>
+            <div>
+                <label for='name'>Nombre:</label>
+                <input type='text' id='name' name='name' required />
+            </div>
+
+            <div>
+                <label for='attendance'>¿Asistirás?</label>
+                <select id='attendance' name='attendance' required>
+                    <option value=''>Asistirás?</option>
+                    <option value='yes'>Sí, asistiré</option>
+                    <option value='no'>No podré asistir</option>
+                </select>
+            </div>
+
+            <button type='submit'>Enviar</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: transparent;
+        backdrop-filter: blur(10px);
+    }
+    .confirmation-form {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 400px;
+                label {
+                    margin-bottom: 0.5rem;
+                    font-weight: bold;
+                }
+                input {
+                    flex: 1;
+                    padding: 5px 10px;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                }
+                select {
+                    flex: 1;
+                    padding: 5px 10px;
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    background-color: white;
+                }
+            }
+            button {
+                padding: 10px 20px;
+                background-color: var(--color-primary);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: background-color 0.3s ease;
+                &:hover {
+                    background-color: var(--color-primary-dark);
+                }
+            }
+        }
+    }
+</style>
