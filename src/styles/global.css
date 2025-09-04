@@ -3,7 +3,7 @@
     --color-secondary: #9333EA; /* Purple-600 */
     --color-accent: #F59E0B; /* Amber-500 */
     --color-white: #FFFFF6; /* White */
-    --color-background: #F3F4F6; /* Gray-100 */
+    --color-background: #efefef; /* Gray-100 */
     --color-text: #111827; /* Gray-900 */
     --color-text-foreground: #3b3b3b;
     --font-family-roboto: 'Roboto Variable', sans-serif;
@@ -51,4 +51,9 @@ p {
     font-size: clamp(1rem, 2vw, 1.5rem);
     line-height: 1.4;
     text-wrap: balance;
+}
+section {
+    background-color: var(--color-background);
+    z-index: 100;
+    position: relative;
 }
