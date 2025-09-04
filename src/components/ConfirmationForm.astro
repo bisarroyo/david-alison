@@ -55,7 +55,8 @@
 
             if (data === 'success') {
                 errorBox.innerHTML = ''
-                responseBox.textContent = `Hola ${name}! Gracias por confirmar tu asistencia.`
+                const firstName = (name as string).split(' ')[0]
+                responseBox.textContent = `Hola ${firstName}! Gracias por confirmar tu asistencia.`
                 form.reset()
                 jsConfetti.addConfetti()
             }
@@ -152,7 +153,8 @@
             button {
                 padding: 10px 20px;
                 background-color: var(--color-primary);
-                color: white;
+                color: var(--color-text);
+                font-family: inherit;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;

@@ -1,5 +1,6 @@
 :root{
-    --color-primary: #5b300d; /* Blue-700 */
+    --color-primary: #e4a068; /* Blue-700 */
+    --color-primary-dark: #dd8f4f; /* Blue-800 */
     --color-secondary: #9333EA; /* Purple-600 */
     --color-accent: #F59E0B; /* Amber-500 */
     --color-white: #FFFFF6; /* White */
