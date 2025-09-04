@@ -9,13 +9,12 @@
                     id='name'
                     name='name'
                     placeholder='Nombre completo'
-                    required
                 />
             </div>
 
             <div>
                 <label for='attendance'>¿Asistirás?</label>
-                <select id='attendance' name='attendance' required>
+                <select id='attendance' name='attendance'>
                     <option value=''>¿Asistirás?</option>
                     <option value='1'>Sí, asistiré</option>
                     <option value='0'>No podré asistir</option>
@@ -24,64 +23,83 @@
 
             <button type='submit'>Enviar</button>
         </form>
-        <div id='response'></div>
+        <div class='response' id='response'></div>
+        <div class='errors' id='error'></div>
     </div>
 </section>
 <script>
+    import { isInputError } from 'astro:actions'
     import { actions } from 'astro:actions'
+    import JSConfetti from 'js-confetti'
+
+    const jsConfetti = new JSConfetti()
 
     const form = document.getElementById('rsvp-form') as HTMLFormElement
+    const submitButton = form.querySelector(
+        "button[type='submit']"
+    ) as HTMLButtonElement
+    const responseBox = document.getElementById('response') as HTMLDivElement
+    const errorBox = document.getElementById('error') as HTMLDivElement
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
-        const formData = new FormData(form)
-        const { name, attendance } = Object.fromEntries(formData.entries())
-        // console.log({ name, attendance })
-        const { data, error } = await actions.sendForm({
-            name: name as string,
-            attendance: attendance as '1' | '0'
-        })
+        submitButton.disabled = true
+        submitButton.textContent = 'Enviando...'
+        try {
+            const formData = new FormData(form)
+            const { name, attendance } = Object.fromEntries(formData.entries())
+            const { data, error } = await actions.sendForm({
+                name: name as string,
+                attendance: attendance as '1' | '0'
+            })
 
-        console.log(data)
-        console.log(error)
+            if (data === 'success') {
+                errorBox.innerHTML = ''
+                responseBox.textContent = `Hola ${name}! Gracias por confirmar tu asistencia.`
+                form.reset()
+                jsConfetti.addConfetti()
+            }
+            if (error && isInputError(error)) {
+                responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Revisa Los errores.`
+
+                errorBox.innerHTML = ''
+                Object.entries(error.fields).forEach(([key, value]) => {
+                    const errorItem = document.createElement('p')
+                    errorItem.textContent = Array.isArray(value)
+                        ? value.join(', ')
+                        : value
+                    errorBox.appendChild(errorItem)
+                })
+            }
+        } catch (error: Error | any) {
+            responseBox.textContent =
+                '❌ Ocurrió un error al enviar el formulario. Por favor, intenta de nuevo.'
+        } finally {
+            submitButton.disabled = false
+            submitButton.textContent = 'Enviar'
+        }
     })
-
-    // const responseBox = document.getElementById('response') as HTMLDivElement
-    // form.addEventListener('submit', async (e) => {
-    //     e.preventDefault()
-
-    //     // Construir datos del formulario
-    //     const formData = new FormData(form)
-
-    //     // Convertir a JSON
-    //     const { name, attendance } = Object.fromEntries(formData.entries())
-    //     if (!name || !attendance) {
-    //         responseBox.textContent = '❌ Por favor completa todos los campos.'
-    //         return
-    //     }
-
-    //     try {
-    //         const res = await fetch('/api/assist', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({ name, attendance })
-    //         })
-
-    //         const result = await res.json()
-
-    //         responseBox.textContent = '✅ Éxito: ' + JSON.stringify(result)
-    //     } catch (error: Error | any) {
-    //         responseBox.textContent = '❌ Error: ' + error.message
-    //     }
-    // })
 </script>
 
 <style>
     section {
         background-color: transparent;
         backdrop-filter: blur(10px);
+    }
+    .response {
+        margin-top: 1rem;
+        font-weight: bold;
+        color: var(--color-text);
+        text-align: center;
+        text-wrap: balance;
+    }
+    .errors {
+        margin-top: 1rem;
+        text-align: center;
+        text-wrap: balance;
+        p {
+            font-size: 1rem;
+        }
     }
     .confirmation-form {
         max-width: 800px;

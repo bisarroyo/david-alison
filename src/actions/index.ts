@@ -6,8 +6,13 @@ import { z } from 'astro:schema'
 export const server = {
     sendForm: defineAction({
         input: z.object({
-            name: z.string().min(3),
-            attendance: z.enum(['1', '0'])
+            name: z
+                .string()
+                .min(3, 'El nombre es muy corto')
+                .max(50, 'El nombre es muy largo'),
+            attendance: z.string().refine((val) => val === '1' || val === '0', {
+                message: 'Debes seleccionar una opción de asistencia'
+            })
         }),
         handler: async (input) => {
             const confirmation = input.attendance === '1' ? 1 : 0
@@ -17,7 +22,6 @@ export const server = {
                 sql: `INSERT INTO attendance (name, message, confirmation) VALUES (?, ?, ?)`,
                 args: [name, message, confirmation]
             })
-            console.log(data)
             return 'success'
         }
     })
