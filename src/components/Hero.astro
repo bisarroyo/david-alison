@@ -18,11 +18,12 @@ import Quote from '@/icons/Quote.astro'
 <style>
     section {
         position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content: end;
         align-items: center;
-        height: 100vh;
+        height: 100dvh;
         gap: 1rem;
         /* Hero background image */
         background-color: bisque; /* fallback */
@@ -36,6 +37,11 @@ import Quote from '@/icons/Quote.astro'
 
         @media (max-width: 2100px) {
             background-position: center -260px;
+        }
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll;
+            }
         }
 
         @media (max-width: 990px) {
