@@ -2,7 +2,11 @@
 const { link } = Astro.props
 ---
 
-<a href={link} class='button'>
+<a
+    href={link}
+    class='button'
+    target={link.startsWith('http') ? '_blank' : '_self'}
+    rel={link ? 'noopener noreferrer' : undefined}>
     <slot />
 </a>
 

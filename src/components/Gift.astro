@@ -3,9 +3,11 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
 ---
 
 <section>
+    <div class='gift-box'>
+        <GiftsIcon class='icon icon-1' />
+    </div>
     <h2>Regalos</h2>
     <p>Texto para Regalos</p>
-    <GiftsIcon class='icon' />
 </section>
 
 <style>
@@ -20,5 +22,16 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
     .icon {
         width: 5rem;
         height: 5rem;
+    }
+    .gift-box {
+        /* .icon-1 {
+            transform: rotate(10deg);
+        } */
+        .icon-2 {
+            transform: rotate(-10deg);
+        }
+        .icon-3 {
+            transform: rotate(20deg);
+        }
     }
 </style>

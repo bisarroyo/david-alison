@@ -1,4 +1,213 @@
 <section>
     <h2>Vestimenta</h2>
     <p>Texto para Vestimenta</p>
+    <div class='section-dress'>
+        <div class='dress-box'>
+            <h3>Hombres</h3>
+            <p>Camisa</p>
+            <div class='shirt-color-men'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+            <p>Pantalón</p>
+            <div class='pants-color-men'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+            <p>Zapatos</p>
+            <div class='shoes-color-men'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+        </div>
+        <div class='dress-box'>
+            <img src='' alt='' />
+        </div>
+        <div class='dress-box'>
+            <h3>Mujeres</h3>
+            <p>Vestido</p>
+            <div class='shirt-color-women'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+            <p>Pantalón</p>
+            <div class='pants-color-women'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+            <p>Zapatos</p>
+            <div class='shoes-color-women'>
+                <div class='color-one'></div>
+                <div class='color-two'></div>
+                <div class='color-three'></div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<style>
+    section {
+        display: grid;
+        place-content: center;
+        padding-top: 10rem;
+    }
+    .section-dress {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1200px;
+        margin-top: 50px;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+        }
+
+        .dress-box {
+            min-width: 300px;
+            text-align: center;
+            p {
+                margin-top: 25px;
+            }
+        }
+    }
+    .shirt-color-men {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            &.color-one {
+                background-color: red;
+            }
+            &.color-two {
+                background-color: yellow;
+            }
+            &.color-three {
+                background-color: pink;
+            }
+        }
+    }
+    .pants-color-men {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--color-border);
+            &.color-one {
+                background-color: black;
+            }
+            &.color-two {
+                background-color: brown;
+            }
+            &.color-three {
+                background-color: white;
+            }
+        }
+    }
+    .shoes-color-men {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--color-border);
+            &.color-one {
+                background-color: black;
+            }
+            &.color-two {
+                background-color: brown;
+            }
+            &.color-three {
+                background-color: white;
+            }
+        }
+    }
+    .shirt-color-women {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            &.color-one {
+                background-color: red;
+            }
+            &.color-two {
+                background-color: yellow;
+            }
+            &.color-three {
+                background-color: pink;
+            }
+        }
+    }
+    .pants-color-women {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--color-border);
+            &.color-one {
+                background-color: black;
+            }
+            &.color-two {
+                background-color: brown;
+            }
+            &.color-three {
+                background-color: white;
+            }
+        }
+    }
+    .shoes-color-women {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--color-border);
+            &.color-one {
+                background-color: black;
+            }
+            &.color-two {
+                background-color: brown;
+            }
+            &.color-three {
+                background-color: white;
+            }
+        }
+    }
+</style>
