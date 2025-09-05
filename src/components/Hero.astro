@@ -3,6 +3,7 @@ import Quote from '@/icons/Quote.astro'
 ---
 
 <section>
+    <p class='date'>20.12.25</p>
     <p class='name'>Allison</p>
     <p class='y'>&</p>
     <p class='name'>David</p>
@@ -25,7 +26,7 @@ import Quote from '@/icons/Quote.astro'
         justify-content: end;
         align-items: center;
         height: 100vh;
-        gap: 1rem;
+        /* gap: 1rem; */
         /* Hero background image */
         background-color: bisque;
         color: var(--color-white);
@@ -47,6 +48,18 @@ import Quote from '@/icons/Quote.astro'
                 background-position: center;
             }
         }
+        p {
+            color: var(--color-white);
+        }
+        .date {
+            font-size: clamp(1rem, 5vw, 2.5rem);
+            text-align: center;
+            margin: 0;
+            font-weight: normal;
+            line-height: 0.9;
+            letter-spacing: 0.1rem;
+            margin-bottom: 2rem;
+        }
 
         .y {
             font-family: var(--font-family-parisienne);
@@ -63,6 +76,7 @@ import Quote from '@/icons/Quote.astro'
     }
 
     .quote {
+        margin-top: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -71,6 +85,7 @@ import Quote from '@/icons/Quote.astro'
         p {
             padding: 0 20px;
             text-wrap: balance;
+            color: var(--color-white);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
