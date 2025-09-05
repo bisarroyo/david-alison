@@ -9,12 +9,13 @@
                     id='name'
                     name='name'
                     placeholder='Nombre completo'
+                    required
                 />
             </div>
 
             <div>
                 <label for='attendance'>¿Asistirás?</label>
-                <select id='attendance' name='attendance'>
+                <select id='attendance' name='attendance' required>
                     <option value=''>¿Asistirás?</option>
                     <option value='1'>Sí, asistiré</option>
                     <option value='0'>No podré asistir</option>
@@ -67,6 +68,9 @@
                 } else {
                     responseBox.textContent += ` Lamentamos que no puedas asistir, pero agradecemos tu confirmación.`
                 }
+            }
+            if (error) {
+                responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Revisa Los errores.`
             }
             if (error && isInputError(error)) {
                 responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Revisa Los errores.`
