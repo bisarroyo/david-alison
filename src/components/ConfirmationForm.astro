@@ -56,9 +56,17 @@
             if (data === 'success') {
                 errorBox.innerHTML = ''
                 const firstName = (name as string).split(' ')[0]
+                const attendanceYes = attendance === '1'
                 responseBox.textContent = `Hola ${firstName}! Gracias por confirmar tu asistencia.`
                 form.reset()
-                jsConfetti.addConfetti()
+                if (attendanceYes) {
+                    responseBox.textContent += ` ¡Nos alegra que puedas acompañarnos en este día tan especial!`
+                    jsConfetti.addConfetti({
+                        confettiColors: ['0F52BA', 'FFFFFF']
+                    })
+                } else {
+                    responseBox.textContent += ` Lamentamos que no puedas asistir, pero agradecemos tu confirmación.`
+                }
             }
             if (error && isInputError(error)) {
                 responseBox.textContent = `❌ Ocurrió un error al enviar el formulario. Por favor, Revisa Los errores.`
@@ -106,7 +114,7 @@
         max-width: 800px;
         margin: 2rem auto;
         padding: 2rem;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.7);
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;

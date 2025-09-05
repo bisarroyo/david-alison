@@ -17,10 +17,9 @@ export const server = {
         handler: async (input) => {
             const confirmation = input.attendance === '1' ? 1 : 0
             const name = input.name.trim()
-            const message = 'Hello'
             const data = await turso.execute({
-                sql: `INSERT INTO attendance (name, message, confirmation) VALUES (?, ?, ?)`,
-                args: [name, message, confirmation]
+                sql: `INSERT INTO attendance (name, confirmation) VALUES (?, ?)`,
+                args: [name, confirmation]
             })
             return 'success'
         }
