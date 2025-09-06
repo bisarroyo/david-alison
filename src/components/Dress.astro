@@ -1,6 +1,10 @@
+---
+import dress from '../assets/dress.webp'
+---
+
 <section>
-    <h2>Vestimenta</h2>
-    <p>Texto para Vestimenta</p>
+    <h2 class='lines'>Vestimenta</h2>
+    <p>Código para Vestimenta</p>
     <div class='section-dress'>
         <div class='dress-box'>
             <h3>Hombres</h3>
@@ -23,8 +27,8 @@
                 <div class='color-three'></div>
             </div>
         </div>
-        <div class='dress-box'>
-            <img src='' alt='' />
+        <div class='dress-image'>
+            <img src={dress.src} alt='' />
         </div>
         <div class='dress-box'>
             <h3>Mujeres</h3>
@@ -52,9 +56,18 @@
 
 <style>
     section {
-        display: grid;
-        place-content: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding-top: 10rem;
+    }
+    .dress-image {
+        img {
+            width: 100%;
+            max-width: 300px;
+            object-fit: contain;
+            mix-blend-mode: darken;
+        }
     }
     .section-dress {
         display: grid;

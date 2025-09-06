@@ -47,6 +47,32 @@ h2 {
     line-height: 0.9;
     margin-bottom: 30px;
     color: var(--color-secondary);
+    position: relative;
+
+    &.lines::before{
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        border-top: 1px solid var(--color-secondary);
+        top: 50%;
+        left: -110px;
+        @media(max-width: 900px){
+            display: none;
+        }
+    }
+    &.lines::after{
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        border-top: 1px solid var(--color-secondary);
+        top: 50%;
+        right: -110px;
+        @media(max-width: 900px){
+            display: none;
+        }
+    }
 }
 h3 {
     font-family: var(--font-family-parisienne);
@@ -73,5 +99,10 @@ section {
     position: relative;
     padding: 5rem 1rem;
     margin-top: -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
 }
 

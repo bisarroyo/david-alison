@@ -6,7 +6,7 @@ import Button from './ui/Button.astro'
 <section>
     <div class='detail'>
         <Rings class='icon' />
-        <h2>Ceremonia & celebración</h2>
+        <h2 class='lines'>Ceremonia & celebración</h2>
         <div class='detail-boxes'>
             <div class='detail-box'>
                 <div class='info'>
@@ -31,9 +31,35 @@ import Button from './ui/Button.astro'
     <style>
         section {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 0rem;
+            .icon {
+                width: 5rem;
+                height: 5rem;
+                color: var(--color-text);
+            }
+            h3 {
+                border-top: 1px solid var(--color-primary);
+                border-bottom: 1px solid var(--color-primary);
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+            div.info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0rem;
+                h4 {
+                    margin: 0;
+                    font-size: 1.5rem;
+                }
+                p {
+                    margin: 0.5rem 0 1rem 0;
+                    font-size: 1.3rem;
+                }
+            }
         }
         .detail-boxes {
             display: flex;
@@ -64,32 +90,6 @@ import Button from './ui/Button.astro'
             align-items: center;
             text-align: center;
             gap: 2rem;
-
-            .icon {
-                width: 5rem;
-                height: 5rem;
-                color: var(--color-text);
-            }
-            h3 {
-                border-top: 1px solid var(--color-primary);
-                border-bottom: 1px solid var(--color-primary);
-                width: 100%;
-                padding: 0.5rem 0;
-            }
-            div.info {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0rem;
-                h4 {
-                    margin: 0;
-                    font-size: 1.5rem;
-                }
-                p {
-                    margin: 0.5rem 0 1rem 0;
-                    font-size: 1.3rem;
-                }
-            }
         }
     </style>
 

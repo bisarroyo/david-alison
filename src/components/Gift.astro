@@ -3,11 +3,13 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
 ---
 
 <section>
+    <h2 class='lines'>Regalos</h2>
+    <p>Texto para Regalos</p>
     <div class='gift-box'>
         <GiftsIcon class='icon icon-1' />
+        <GiftsIcon class='icon icon-2' />
+        <GiftsIcon class='icon icon-3' />
     </div>
-    <h2>Regalos</h2>
-    <p>Texto para Regalos</p>
 </section>
 
 <style>
@@ -24,14 +26,14 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
         height: 5rem;
     }
     .gift-box {
-        /* .icon-1 {
-            transform: rotate(10deg);
-        } */
+        .icon-1 {
+            transform: rotate(10deg) translateX(20px) translateY(0);
+        }
         .icon-2 {
-            transform: rotate(-10deg);
+            transform: rotate(-10deg) translateX(5px) translateY(20px);
         }
         .icon-3 {
-            transform: rotate(20deg);
+            transform: rotate(20deg) translateX(0px) translateY(0px);
         }
     }
 </style>

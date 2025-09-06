@@ -1,4 +1,33 @@
+---
+import Button from './ui/Button.astro'
+
+import Instagram from '../icons/Instagram.astro'
+---
+
 <section>
-    <h2>Comparte tus fotos</h2>
-    <p>Texto para compartir fotos</p>
+    <h2 class='lines'>Compartimos este día junto a ti</h2>
+    <p>Comparte tus fotos y vídeos de este hermoso día</p>
+    <Instagram class='icon' />
+    <a
+        class='hash'
+        href='https://www.instagram.com/explore/search/keyword/?q=%davidyallison'
+        >#davidyallison</a
+    >
+    <Button
+        link='https://www.instagram.com/explore/search/keyword/?q=%davidyallison'>
+        Ver en Instagram</Button
+    >
 </section>
+<style>
+    .hash {
+        text-decoration: none;
+        color: var(--color-secondary);
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+    .icon {
+        width: 100px;
+        height: 100px;
+        margin-top: 2rem;
+    }
+</style>
