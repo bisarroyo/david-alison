@@ -49,6 +49,7 @@ h2 {
     margin-bottom: 30px;
     color: var(--color-secondary);
     position: relative;
+    text-wrap: balance;
 
     &.lines::before{
         content: "";
@@ -84,7 +85,7 @@ h3 {
     line-height: 0.9;
 }
 h4 {
-    color: var(--color-text);
+    color: var(--color-secondary);
 }
 p {
     margin: 0;
