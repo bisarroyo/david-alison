@@ -4,52 +4,45 @@ import dress from '../assets/dress.webp'
 
 <section>
     <h2 class='lines'>Vestimenta</h2>
-    <p>Código para Vestimenta</p>
+    <p>Código de vestimenta: Formal de gala.</p>
+    <p>
+        Les invitamos a lucir sus mejores galas en tonos elegantes y sobrios.
+        Para mantener la armonía de la celebración, les pedimos evitar los
+        colores blanco, beige, negro, rojo, zafiro y dorado.
+    </p>
+    <p>
+        Sugerencias: tonos pasteles, verdes, burdeos, azul marino o metálicos
+        suaves.
+    </p>
+
     <div class='section-dress'>
         <div class='dress-box'>
             <h3>Hombres</h3>
-            <p>Camisa</p>
-            <div class='shirt-color-men'>
+            <p>Traje formal</p>
+            <p>No beige</p>
+            <div class='color-men'>
                 <div class='color-one'></div>
-                <div class='color-two'></div>
-                <div class='color-three'></div>
             </div>
-            <p>Pantalón</p>
-            <div class='pants-color-men'>
-                <div class='color-one'></div>
-                <div class='color-two'></div>
-                <div class='color-three'></div>
-            </div>
+            <p>Corbata o corbatín</p>
             <p>Zapatos</p>
-            <div class='shoes-color-men'>
-                <div class='color-one'></div>
-                <div class='color-two'></div>
-                <div class='color-three'></div>
-            </div>
         </div>
         <div class='dress-image'>
             <img src={dress.src} alt='' />
         </div>
         <div class='dress-box'>
             <h3>Mujeres</h3>
-            <p>Vestido</p>
-            <div class='shirt-color-women'>
+            <p>Vestido largo</p>
+            <p>No blanco, beige, negro, rojo, zafiro y dorado.</p>
+            <div class='color-women'>
                 <div class='color-one'></div>
                 <div class='color-two'></div>
                 <div class='color-three'></div>
+                <div class='color-four'></div>
+                <div class='color-five'></div>
+                <div class='color-six'></div>
             </div>
-            <p>Pantalón</p>
-            <div class='pants-color-women'>
-                <div class='color-one'></div>
-                <div class='color-two'></div>
-                <div class='color-three'></div>
-            </div>
-            <p>Zapatos</p>
-            <div class='shoes-color-women'>
-                <div class='color-one'></div>
-                <div class='color-two'></div>
-                <div class='color-three'></div>
-            </div>
+            <p>Tacones abiertos o cerrados</p>
+            <p>Accesorios</p>
         </div>
     </div>
 </section>
@@ -59,9 +52,17 @@ import dress from '../assets/dress.webp'
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: 10rem;
+        padding-top: 5rem;
+    }
+    p {
+        max-width: 75ch;
+        text-wrap: balance;
+        margin-bottom: 10px;
+        text-transform: none;
     }
     .dress-image {
+        display: grid;
+        place-items: center;
         img {
             width: 100%;
             max-width: 300px;
@@ -87,7 +88,7 @@ import dress from '../assets/dress.webp'
             }
         }
     }
-    .shirt-color-men {
+    .color-men {
         display: flex;
         flex-direction: row;
         gap: 1rem;
@@ -98,18 +99,14 @@ import dress from '../assets/dress.webp'
             width: 20px;
             height: 20px;
             border-radius: 50%;
+            border: 1px solid var(--color-text);
             &.color-one {
-                background-color: red;
-            }
-            &.color-two {
-                background-color: yellow;
-            }
-            &.color-three {
-                background-color: pink;
+                background-color: #cfbfaf;
             }
         }
     }
-    .pants-color-men {
+
+    .color-women {
         display: flex;
         flex-direction: row;
         gap: 1rem;
@@ -120,106 +117,24 @@ import dress from '../assets/dress.webp'
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--color-text);
             &.color-one {
-                background-color: black;
+                background-color: #ffffff;
             }
             &.color-two {
-                background-color: brown;
+                background-color: #cfbfaf;
             }
             &.color-three {
-                background-color: white;
+                background-color: #000000;
             }
-        }
-    }
-    .shoes-color-men {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        div {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid var(--color-border);
-            &.color-one {
-                background-color: black;
+            &.color-four {
+                background-color: #ff0a0a;
             }
-            &.color-two {
-                background-color: brown;
+            &.color-five {
+                background-color: var(--color-primary);
             }
-            &.color-three {
-                background-color: white;
-            }
-        }
-    }
-    .shirt-color-women {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        div {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            &.color-one {
-                background-color: red;
-            }
-            &.color-two {
-                background-color: yellow;
-            }
-            &.color-three {
-                background-color: pink;
-            }
-        }
-    }
-    .pants-color-women {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        div {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid var(--color-border);
-            &.color-one {
-                background-color: black;
-            }
-            &.color-two {
-                background-color: brown;
-            }
-            &.color-three {
-                background-color: white;
-            }
-        }
-    }
-    .shoes-color-women {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        div {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid var(--color-border);
-            &.color-one {
-                background-color: black;
-            }
-            &.color-two {
-                background-color: brown;
-            }
-            &.color-three {
-                background-color: white;
+            &.color-six {
+                background-color: var(--color-gold);
             }
         }
     }

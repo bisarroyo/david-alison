@@ -58,15 +58,15 @@
                 errorBox.innerHTML = ''
                 const firstName = (name as string).split(' ')[0]
                 const attendanceYes = attendance === '1'
-                responseBox.textContent = `Hola ${firstName}! Gracias por confirmar tu asistencia.`
+                responseBox.textContent = `Hola ${firstName}!`
                 form.reset()
                 if (attendanceYes) {
-                    responseBox.textContent += ` ¡Nos alegra que puedas acompañarnos en este día tan especial!`
+                    responseBox.textContent += ` Gracias por confirmar tu asistencia. ¡Nos alegra que puedas acompañarnos en este día tan especial!`
                     jsConfetti.addConfetti({
-                        confettiColors: ['0F52BA', 'FFFFFF']
+                        confettiColors: ['#d2b100', '#FFFFFF', '#0F52BA']
                     })
                 } else {
-                    responseBox.textContent += ` Lamentamos que no puedas asistir, pero agradecemos tu confirmación.`
+                    responseBox.textContent += ` Lamentamos que no puedas asistir, y agradecemos tu confirmación.`
                 }
             }
             if (error) {
@@ -174,13 +174,13 @@
                 font-size: 1rem;
                 transition: background-color 0.3s ease;
                 padding: 0.4rem 1.5rem;
-                background-color: var(--color-white);
-                border: 1px solid var(--color-primary);
-                box-shadow: 0 4px 6px rgba(15, 82, 186, 0.5);
-                color: var(--color-primary);
+                background-color: var(--color-gold);
+                border: 1px solid rgba(210, 177, 0, 0.5);
+                box-shadow: -4px 4px 11px 0px rgba(210, 177, 0, 0.5);
+                color: var(--color-white);
                 &:hover {
-                    background-color: var(--color-primary);
-                    color: var(--color-white);
+                    background-color: var(--color-white);
+                    color: var(--color-gold);
                 }
             }
         }

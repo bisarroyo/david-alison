@@ -4,7 +4,12 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
 
 <section>
     <h2 class='lines'>Regalos</h2>
-    <p>Texto para Regalos</p>
+    <p>Su compañía es nuestro mayor regalo.</p>
+    <p>
+        Si además desean bendecirnos, agradeceremos con mucho cariño su aporte
+        económico, que nos permitirá construir los sueños de nuestro nuevo
+        hogar.
+    </p>
     <div class='gift-box'>
         <GiftsIcon class='icon icon-1' />
         <GiftsIcon class='icon icon-2' />
@@ -20,10 +25,15 @@ import GiftsIcon from '@/icons/GiftsIcon.astro'
         align-items: center;
         flex-direction: column;
         gap: 2rem;
+        p {
+            max-width: 75ch;
+            text-wrap: balance;
+        }
     }
     .icon {
         width: 5rem;
         height: 5rem;
+        fill: var(--color-gold);
     }
     .gift-box {
         .icon-1 {

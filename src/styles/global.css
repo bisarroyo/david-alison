@@ -2,7 +2,8 @@
     --color-primary: #0F52BA; /* Zaphire */
     --color-primary-dark: #4169E1; /* Royal blue */
     --color-secondary: #08316e; /* Purple-600 */
-    --color-accent: #F59E0B; /* Amber-500 */
+    --color-gold: #d2b100;
+    --color-accent: #683d14; /* Amber-500 */
     --color-white: #FFFFF6; /* White */
     --color-background: #efefef; /* Gray-100 */
     --color-text: #323336; /* Gray-900 */
@@ -76,7 +77,7 @@ h2 {
 }
 h3 {
     font-family: var(--font-family-parisienne);
-    font-size: clamp(1rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     text-align: center;
     margin: 0;
     font-weight: normal;
