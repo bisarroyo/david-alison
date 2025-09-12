@@ -1,0 +1,21 @@
+---
+import Button from '@/components/ui/Button.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout>
+    <section>
+        <h1>Error 404</h1>
+        <p>Página no encontrada</p>
+        <Button link='/'>Volver a inicio</Button>
+    </section>
+</Layout>
+
+<style>
+    section {
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+</style>
