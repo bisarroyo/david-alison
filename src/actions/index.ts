@@ -23,5 +23,13 @@ export const server = {
             })
             return 'success'
         }
+    }),
+    retriveList: defineAction({
+        handler: async () => {
+            const data = await turso.execute({
+                sql: `SELECT * FROM attendance`
+            })
+            return JSON.stringify(data)
+        }
     })
 }
